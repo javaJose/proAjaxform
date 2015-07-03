@@ -1,0 +1,51 @@
+<!--<%@ Page Language= "C#" AutoEventWireup="true"
+CodeFile="Default.aspx.cs" Inherits="_Default" %>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+<link rel="stylesheet" href= paf.css>
+<title>My Html Page</title>
+</head>
+<body>
+<script>
+function person(name, country)
+  {
+    this.name= name;
+    this.country= country;
+    this.sayHello= function () {alert(this.name + " says: 'Hello.'");};
+  }
+
+var theauthor= new person('Daniel', 'U.S.A.');
+var thereader= new person('Jose','Spain');
+thereader.sayGoodbye = function() {alert(this.name + " says 'Goodbye!'"); };
+
+theauthor.sayHello();
+thereader.sayHello();
+thereader.sayGoodbye();
+theauthor.sayGoodbye();
+</script>
+<form id="frmDefault" runat="server">
+<div class="hello">
+<script>
+function sayHello(objPerson)
+  {
+    return "Hello " + objPerson.name;
+  }
+ </script>
+  <h1>Object Communication</h1>
+  <script>
+    var theauthor= new person ('Daniel', 'U.S.A');
+	document.write( sayHello(theauthor) );
+	</script>
+<h1>Response:</h1>
+	<script>
+	var thereader= new person('Jose','Spain');
+	document.write(  sayHello (thereader) );
+	</script>
+	</div>
+	
+	</form>
+	</body>
+	</html>
+	
